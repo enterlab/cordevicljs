@@ -12,3 +12,4 @@ pom.xml.asc
 profiles.clj
 figwheel_server.log
 .DS_Store
+/resources/platforms
