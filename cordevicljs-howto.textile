@@ -1,18 +1,26 @@
-Use Enterlab Rente to create a Cordova backed native app for Android and iOS using OnsenUI for user interface, Facebook React wrapped in ClojureScript Reagent using AJAX for logging on to a remote server and websocket via Sente for app/server communication. Wheew.
+h1. Use Enterlab Rente to create a Cordova backed native app for Android and iOS using OnsenUI for user interface, Facebook React wrapped in ClojureScript Reagent using AJAX for logging on to a remote server and websocket via Sente for app/server communication
 
-# git clone https://github.com/enterlab/rente.git cordevicljs
+(Wheew!)
 
-# cd cordevicljs
+h2. Clone Enterlab Rente
+
+# git clone https://github.com/enterlab/rente.git [your-app]
+
+# cd [your-app]
 
 # rm app.json
 
-# Replace all instances of "rente" in the project with [your-namespace]; cljs, clj and project.clj
+h2. Change namespaces and prepare for Cordova
+
+# Replace all instances of "rente" in the project with [your-app]; cljs, clj and project.clj
 
 # Change project.clj "dev-resources/www/js/out" to "resources/www/js/out"
 
 # Change project.clj occurrences of "public" to "www", including :main, :output-to, :output-dir, :http-server-root, :css-dirs
 
-# Rename folder src/rente to src/[your-namespace]
+# Rename folder src/rente to src/[your-app]
+
+h2. Build ClojureScript
 
 # Build with lein clean && lein figwheel
 
@@ -20,9 +28,11 @@ When no build error, continue:
 
 # CTRL+c to stop figwheel
 
+h2. Add Cordova
+
 # rm -rf resources
 
-# cordova create resources [com.yourcompany.your-namespace] "Your app description"
+# cordova create resources [com.yourcompany.your-app] "Your app description"
 
 # cordova platform add browser
 
@@ -32,6 +42,8 @@ When no build error, continue:
 # cordova plugin add cordova-plugin-device
 
 # cordova plugin add org.apache.cordova.dialogs
+
+h2. Run Cordova sample app
 
 # cd .. && lein clean && lein figwheel
 
@@ -53,15 +65,17 @@ You should now see an Apache Cordova logo/text and a green box with the text "DE
 
 You should now see the same, but this time in your iOS Emulator
 
+h2. Convert for "Rente" (CLJS, React, websocket)
+
 # edit www/index.html:
 ## change last <script/> tag from referencing js/index.js to js/app.js
 ## Add this in the bottom of the <head/> tag:   <!-- DEV ONLY! REMOVE IN PROD -->
   <script type="text/javascript" src="js/out/goog/base.js"></script>
 ## Add this just before the <body/> tag:
-  <!-- DEV ONLY! REPLACE IN PROD -->
-  <script type="text/javascript">
-    goog.require("meewee.mobile.start");
-  </script>
+<!-- DEV ONLY! REPLACE IN PROD -->
+<script type="text/javascript">
+  goog.require("meewee.mobile.start");
+</script>
 
 # Add 'unsafe-inline' in the meta tag containing the Content-Security-Policy. It should be put just after "default-src 'self'" and just before "data:"
 
@@ -69,13 +83,26 @@ You should now see the same, but this time in your iOS Emulator
 
 # In index.html add id="app" to the div element with class="app"
 
+h2. Test "Rente" features (React and Socket)
+
 # In resources folder: cordova run browser
 
-See that the "APACHE CORDOVA" and the "DEVICE READY" has been replaced with content similar to that of Enterlab Rente.
+See that the "APACHE CORDOVA" and the "DEVICE READY" has been replaced with content similar to that from Enterlab Rente.
 
 This is rendered using React (via Reagent), which means that Reagent is rendering correctly.
 
-h2. Add Device Interop
+If you open up your browser console, you should see that the app web socket has been connected as well, with a console log line such as:
+
+Channel socket state change: {:type :ws, :open? true, :destroyed? false, :uid :taoensso.sente/nil-uid, :csrf-token nil, :first-open? true}
+
+When you click the two buttons you will get the following console log results respectively:
+
+CALLBACK from server:  [:cordevicljs/testevent {:message "Hello socket from server Callback, received: {:message \"Hello socket Callback!\"}"}]
+
+and:
+PUSHed :cordevicljs/testevent from server: {:message "Hello socket from server Event (no callback), received: {:message \"Hello socket Event!\"}"} 
+
+h2. Add Device Native Interop
 
 # Add the following two functions in app.cljs, just above the main function:
 
@@ -92,7 +119,9 @@ h2. Add Device Interop
 
 # Then add a call to (prepare-device) as the first line in the main function
 
-# One more cordova run browser
+h2. Test Device Native Interop
+
+# One more: cordova run browser
 
 You should now see a standard javascript alert showing that "Device Native Bridge works!"
 
