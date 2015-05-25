@@ -1,0 +1,106 @@
+Use Enterlab Rente to create a Cordova backed native app for Android and iOS using OnsenUI for user interface, Facebook React wrapped in ClojureScript Reagent using AJAX for logging on to a remote server and websocket via Sente for app/server communication. Wheew.
+
+# git clone https://github.com/enterlab/rente.git cordevicljs
+
+# cd cordevicljs
+
+# rm app.json
+
+# Replace all instances of "rente" in the project with [your-namespace]; cljs, clj and project.clj
+
+# Change project.clj "dev-resources/www/js/out" to "resources/www/js/out"
+
+# Change project.clj occurrences of "public" to "www", including :main, :output-to, :output-dir, :http-server-root, :css-dirs
+
+# Rename folder src/rente to src/[your-namespace]
+
+# Build with lein clean && lein figwheel
+
+When no build error, continue:
+
+# CTRL+c to stop figwheel
+
+# rm -rf resources
+
+# cordova create resources [com.yourcompany.your-namespace] "Your app description"
+
+# cordova platform add browser
+
+# cordova platform add ios
+## add other platforms: android, wp8 etc. if you want
+
+# cordova plugin add cordova-plugin-device
+
+# cordova plugin add org.apache.cordova.dialogs
+
+# cd .. && lein clean && lein figwheel
+
+In a new terminal tab (or window):
+
+# lein run
+
+This starts the server which respond to AJAX/socket connections
+
+In yet another terminal tab/window:
+
+# cd resources
+
+# cordova prepare && cordova run browser
+
+You should now see an Apache Cordova logo/text and a green box with the text "DEVICE IS READY" in your browser
+
+# cordova run ios
+
+You should now see the same, but this time in your iOS Emulator
+
+# edit www/index.html:
+## change last <script/> tag from referencing js/index.js to js/app.js
+## Add this in the bottom of the <head/> tag:   <!-- DEV ONLY! REMOVE IN PROD -->
+  <script type="text/javascript" src="js/out/goog/base.js"></script>
+## Add this just before the <body/> tag:
+  <!-- DEV ONLY! REPLACE IN PROD -->
+  <script type="text/javascript">
+    goog.require("meewee.mobile.start");
+  </script>
+
+# Add 'unsafe-inline' in the meta tag containing the Content-Security-Policy. It should be put just after "default-src 'self'" and just before "data:"
+
+# In the end of the value of the tag, just after "media-src '*', add "; connect-src 'self' ws://localhost:8080 ws://localhost:3449;"
+
+# In index.html add id="app" to the div element with class="app"
+
+# In resources folder: cordova run browser
+
+See that the "APACHE CORDOVA" and the "DEVICE READY" has been replaced with content similar to that of Enterlab Rente.
+
+This is rendered using React (via Reagent), which means that Reagent is rendering correctly.
+
+h2. Add Device Interop
+
+# Add the following two functions in app.cljs, just above the main function:
+
+(defn ^:export onDeviceReady []  
+  (-> (js* "navigator")
+    (.-notification)
+      (.alert "Device Native Bridge works!"
+      (fn [] nil)
+      ""
+      "")))
+
+(defn ^:export prepare-device []
+  (.addEventListener js/document "deviceready" onDeviceReady true))
+
+# Then add a call to (prepare-device) as the first line in the main function
+
+# One more cordova run browser
+
+You should now see a standard javascript alert showing that "Device Native Bridge works!"
+
+Let's test it on the device as well:
+
+# cordova run ios
+
+If you get an alert in the native app that looks like a native alert showing the exact same text, "Device Native Bridge works!", then you're good to go - you've got the native device bridge working, so you can communicate with most native device features via Cordova! w00t!
+
+Now is a good time for a walk in the park with a great cup of coffee and perhaps a good friend/colleage etc.
+

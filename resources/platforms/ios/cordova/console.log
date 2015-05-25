@@ -1,0 +1,44 @@
+2015-05-25 21:51:26.469 Enterlab CorDeviCLJS[56915:473915] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Data/Application/E75D1693-FA4A-49B9-A9FB-10AA120DD1C4/Library/Cookies/Cookies.binarycookies
+2015-05-25 21:51:26.565 Enterlab CorDeviCLJS[56915:473915] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-25 21:51:26.566 Enterlab CorDeviCLJS[56915:473915] Multi-tasking -> Device: YES, App: YES
+2015-05-25 21:51:26.569 Enterlab CorDeviCLJS[56915:473915] Unlimited access to network resources
+2015-05-25 21:51:26.571 Enterlab CorDeviCLJS[56915:473915] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-25 21:51:27.327 Enterlab CorDeviCLJS[56915:473915] Resetting plugins due to page load.
+2015-05-25 21:51:27.542 Enterlab CorDeviCLJS[56915:473915] Finished load of: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Bundle/Application/4402A8BC-B434-4FE0-AE56-6090E4B958C1/Enterlab%20CorDeviCLJS.app/www/index.html
+2015-05-25 22:30:17.772 Enterlab CorDeviCLJS[60670:496081] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Data/Application/987F4526-4890-4283-8A5E-68563A5CE33F/Library/Cookies/Cookies.binarycookies
+2015-05-25 22:30:17.828 Enterlab CorDeviCLJS[60670:496081] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-25 22:30:17.828 Enterlab CorDeviCLJS[60670:496081] Multi-tasking -> Device: YES, App: YES
+2015-05-25 22:30:17.830 Enterlab CorDeviCLJS[60670:496081] Unlimited access to network resources
+2015-05-25 22:30:17.832 Enterlab CorDeviCLJS[60670:496081] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-25 22:30:17.940 Enterlab CorDeviCLJS[60670:496081] Resetting plugins due to page load.
+2015-05-25 22:30:18.256 Enterlab CorDeviCLJS[60670:496081] Finished load of: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Bundle/Application/01B33B8B-B34F-4E39-B7C5-3386CDA7476D/Enterlab%20CorDeviCLJS.app/www/index.html
+2015-05-25 22:30:18.419 Enterlab CorDeviCLJS[60670:496081] THREAD WARNING: ['Notification'] took '19.489990' ms. Plugin should use a background thread.
+2015-05-25 22:31:50.471 Enterlab CorDeviCLJS[61026:497735] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Data/Application/8534E74B-3199-4576-B347-28330F27FD07/Library/Cookies/Cookies.binarycookies
+2015-05-25 22:31:50.558 Enterlab CorDeviCLJS[61026:497735] Apache Cordova native platform version 3.8.0 is starting.
+2015-05-25 22:31:50.558 Enterlab CorDeviCLJS[61026:497735] Multi-tasking -> Device: YES, App: YES
+2015-05-25 22:31:50.560 Enterlab CorDeviCLJS[61026:497735] Unlimited access to network resources
+2015-05-25 22:31:50.562 Enterlab CorDeviCLJS[61026:497735] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-25 22:31:50.837 Enterlab CorDeviCLJS[61026:497735] Resetting plugins due to page load.
+2015-05-25 22:31:51.116 Enterlab CorDeviCLJS[61026:497735] Finished load of: file:///Users/luposlip/Library/Developer/CoreSimulator/Devices/77E136B9-36C2-4B14-92A4-4E09C7D3AC62/data/Containers/Bundle/Application/02B05917-A515-4D32-926A-544425840406/Enterlab%20CorDeviCLJS.app/www/index.html
+2015-05-25 22:31:51.202 Enterlab CorDeviCLJS[61026:497735] THREAD WARNING: ['Notification'] took '16.435791' ms. Plugin should use a background thread.
