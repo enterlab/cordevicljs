@@ -32,6 +32,7 @@
   (.addEventListener js/document "deviceready" onDeviceReady true))
 
 (defn ^:export main []
+  (.module (.-angular js/window) "app" #js []) ; "onsen"
   (prepare-device)
   (when-let [root (.getElementById js/document "app")]
     (reagent/render-component [app state] root))
