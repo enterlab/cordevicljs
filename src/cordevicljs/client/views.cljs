@@ -1,17 +1,20 @@
 (ns cordevicljs.client.views
   (:require [cordevicljs.client.ws :as socket]))
 
+(defn footer []
+  [:ons-row {:style {:margin-top "10px" :text-align "center"}}
+    [:ons-col
+      [:p {:style {:color "#999" :font-size "13px"}}
+        "Click top left icon to close/open menu"
+        [:br]
+        "You can also swipe the page left/right."]]])
+
 (defn main [data]
   [:div
-   [:h1 (:title @data)]
-   [:span "Hello world! This is reagent!"]
-   [:br]
-   [:span "And sente seems to work too.."]
-   [:br]
-   [:span "And figwheel.. w00t!"]
-   [:br]
-   [:button {:on-click socket/test-socket-callback} "Send Message Callback"]
-   [:br]
-   [:button {:on-click socket/test-socket-event} "Send Message Event"]
-   ])
+   [:span "Hello Clojure World!"]
+   [:br][:br]
+   [:ons-button  {:modifier "large" :on-click socket/test-socket-callback} "Send Callback"]
+   [:br][:br]
+   [:ons-button {:modifier "large" :on-click socket/test-socket-event} "Send Event"]
+   [footer]])
 

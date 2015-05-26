@@ -136,7 +136,7 @@ Now is a good time for a walk in the park with a great cup of coffee and perhaps
 
 h2. Add Angular.js
 
-github tag: cljs-react-socket-device
+Checkout tag: cljs-react-socket-device
 
 # Add language="en" ng-app="app" attributes to index.html's <html/> element
 
@@ -156,7 +156,7 @@ If you get the alert there as well, you're good to go on! :)
 
 h2. Add OnsenUI
 
-github tag: cljs-react-socket-device-angular
+Checkout tag: cljs-react-socket-device-angular
 
 To add support for OnsenUI (http://onsen.io) in CorDeviCLJS, perform the following steps:
 
@@ -164,7 +164,9 @@ To add support for OnsenUI (http://onsen.io) in CorDeviCLJS, perform the followi
 <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
 <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">    
 <link rel="stylesheet" href="css/menu.css">
-<script src="lib/onsen/js/onsenui.js"></script-->
+
+# Below the link to angular.js, insert this:
+<script src="lib/onsen/js/onsenui.js"></script>
 
 # In app.cljs add "onsen" to the empty vector in the function call we added earlier. It should end up looking like this:
 (.module (.-angular js/window) "app" #js ["onsen"])
@@ -173,4 +175,113 @@ Again: test both browser and ios emulator.
 
 If both work, you have all the basics working, and can now develop your app as you wish! :)
 
-github tag: cljs-react-socket-device-angular-onsen
+If you continue we'll add some native-ish look-and-feel to the app.
+
+h2. Native-ish look-and-feel
+
+Checkout tag: cljs-react-socket-device-angular-onsen
+
+Here we will add a native-like look and feel, resembling some sort of a flat UI usable for all mobile platforms.
+
+# Delete the <div/> element in index.html, and replace it with this:
+<ons-sliding-menu menu-page="menu.html" main-page="main.html" side="left" var="menu" type="reveal" swipe-target-width="80px" max-slide-distance="280px" swipeable="true">
+</ons-sliding-menu>
+
+<ons-template id="menu.html">
+    <ons-page modifier="menu-page">
+        <ons-toolbar modifier="transparent"></ons-toolbar>
+
+        <ons-list class="menu-list">
+            <ons-list-item class="menu-item" ng-click="menu.setMainPage('register.html', {closeMenu: true})">
+            <ons-icon icon="fa-plus" fixed-width="true"></ons-icon>
+                Register
+            </ons-list-item>
+
+            <ons-list-item class="menu-item" ng-click="menu.setMainPage('page2.html', {closeMenu: true})">
+            <ons-icon icon="fa-bookmark" fixed-width="true"></ons-icon>
+                Bookmark
+            </ons-list-item>
+        </ons-list>
+    </ons-page>
+</ons-template>
+
+<ons-template id="main.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-toolbar-button ng-click="menu.toggle()">
+                    <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                </ons-toolbar-button>
+            </div>
+            <div class="center">Enterlab CorDeviCLJS</div>
+        </ons-toolbar>
+        </br></br>
+        <div id="app" style="padding: 0 0 10px 20px"></div>
+    </ons-page>
+</ons-template>
+
+# Put these 2 functions in top of app.cljs (below the namespace declaration, duh..):
+;; OnsenUI Interop
+(defn ons-component [component dom-id & [callback]]
+  (with-meta component
+    {:component-did-mount
+     (fn [this]
+      (.compile js/ons (.getElementById js/document dom-id))
+      (when callback (callback)))}))
+
+(defn ons-render [component dom-id state-wrapper & [callback]]
+  (reagent/render-component
+    [(ons-component component dom-id callback) state-wrapper]
+     (.getElementById js/document dom-id)))
+
+# In view.cljs replace the main function with these two functions:
+(defn footer []
+  [:ons-row {:style {:margin-top "10px" :text-align "center"}}
+    [:ons-col
+      [:p {:style {:color "#999" :font-size "13px"}}
+        "Click top left icon to close/open menu"
+        [:br]
+        "You can also swipe the page left/right."]]])
+
+(defn main [data]
+  [:div
+   [:span "Hello Clojure World!"]
+   [:br][:br]
+   [:ons-button  {:modifier "large" :on-click socket/test-socket-callback} "Send Callback"]
+   [:br][:br]
+   [:ons-button {:modifier "large" :on-click socket/test-socket-event} "Send Event"]
+   [footer]])
+
+As you can see, because of the small trick in ons-component and ons-render, we can easily use OnsenUI elements in our hiccup-ish Reagent/React components! :)
+
+# In the main function, delete the the call to (prepare-device) and the when-let form, and replace both with this:
+(.ready js/ons
+    (fn []
+      (ons-render app "app" state)
+      (prepare-device)))
+
+# Test in browser with cordova run browser, and on device with cordova run ios.
+
+If both looks like a native-ish flat UI app, you can open the menu and the alert shows, then everything works perfectly. That's it!
+
+If you want to make sure that you get the exact same code as desribed above, checkout from github via the tag cljs-react-socket-device-angular-onsen-lookandfeel
+
+You've now successfully built your own mobile app with native-like performance and native-ish flat look-and-feel via OnsenUI, web socket communication to your server via Sente, React as client side framework via Reagent and Cordova for built tool and access to native device features such as location, camera, Bluetooth etc.
+
+w00t, what a day! :)
+
+You can now add more views etc. to your app using OnsenUI components:
+http://onsen.io/guide/overview.html
+
+You can add Cordova plugins for access to native device features:
+http://plugins.cordova.io
+
+We use this template ourselves when building hybrid/native mobile apps for iOS and Android. So don't hesitate to contact us if you have any questions/suggestions.
+
+Happy-happy-happy, joy-joy-joy! :)
+
+Best,
+@luposlip
+@enterlab
+
+http://enterlab.com

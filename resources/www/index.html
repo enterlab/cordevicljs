@@ -38,9 +38,10 @@
         <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
         <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">    
         <link rel="stylesheet" href="css/menu.css">
-        <script src="lib/onsen/js/onsenui.js"></script-->
 
         <script src="lib/onsen/js/angular/angular.js"></script>
+        <script src="lib/onsen/js/onsenui.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
 
         <title>Hello CorDeviCLJS</title>
 
@@ -49,13 +50,43 @@
 
     </head>
     <body>
-        <div class="app" id="app">
-            <h1>Enterlab CorDeviCLJS</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-            </div>
-        </div>
-        <script type="text/javascript" src="cordova.js"></script>
+        
+        <ons-sliding-menu menu-page="menu.html" main-page="main.html" side="left" var="menu" type="reveal" swipe-target-width="80px" max-slide-distance="280px" swipeable="true">
+        </ons-sliding-menu>
+
+        <ons-template id="menu.html">
+            <ons-page modifier="menu-page">
+                <ons-toolbar modifier="transparent"></ons-toolbar>
+
+                <ons-list class="menu-list">
+                    <ons-list-item class="menu-item" ng-click="menu.setMainPage('register.html', {closeMenu: true})">
+                    <ons-icon icon="fa-plus" fixed-width="true"></ons-icon>
+                        Register
+                    </ons-list-item>
+
+                    <ons-list-item class="menu-item" ng-click="menu.setMainPage('page2.html', {closeMenu: true})">
+                    <ons-icon icon="fa-bookmark" fixed-width="true"></ons-icon>
+                        Bookmark
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-template>
+
+        <ons-template id="main.html">
+            <ons-page>
+                <ons-toolbar>
+                    <div class="left">
+                        <ons-toolbar-button ng-click="menu.toggle()">
+                            <ons-icon icon="ion-navicon" size="28px" fixed-width="false"></ons-icon>
+                        </ons-toolbar-button>
+                    </div>
+                    <div class="center">Enterlab CorDeviCLJS</div>
+                </ons-toolbar>
+                </br></br>
+                <div id="app" style="padding: 0 0 10px 20px"></div>
+            </ons-page>
+        </ons-template>
+        
         <script type="text/javascript" src="js/app.js"></script>
           <!-- DEV ONLY! REPLACE IN PROD -->
   <script type="text/javascript">

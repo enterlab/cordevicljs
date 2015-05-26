@@ -6,9 +6,21 @@
 
 (defonce state (reagent/atom {:title "cordevicljs"
                               :messages []
-
                               :re-render-flip false}))
 
+;; OnsenUI Interop
+
+(defn ons-component [component dom-id & [callback]]
+  (with-meta component
+    {:component-did-mount
+     (fn [this]
+      (.compile js/ons (.getElementById js/document dom-id))
+      (when callback (callback)))}))
+
+(defn ons-render [component dom-id state-wrapper & [callback]]
+  (reagent/render-component
+    [(ons-component component dom-id callback) state-wrapper]
+     (.getElementById js/document dom-id)))
 
 (defmulti handle-event (fn [data [ev-id ev-data]] ev-id))
 
@@ -33,7 +45,7 @@
 
 (defn ^:export main []
   (.module (.-angular js/window) "app" #js ["onsen"])
-  (prepare-device)
-  (when-let [root (.getElementById js/document "app")]
-    (reagent/render-component [app state] root))
-)
+  (.ready js/ons
+    (fn []
+      (ons-render app "app" state)
+      (prepare-device))))
