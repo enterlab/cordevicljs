@@ -1,2 +1,0 @@
-;; Analyzed by ClojureScript 0.0-3291
-{:name cordevicljs.start, :doc nil, :excludes #{}, :use-macros nil, :require-macros nil, :uses nil, :requires {fw figwheel.client, figwheel.client figwheel.client, app cordevicljs.client.app, cordevicljs.client.app cordevicljs.client.app}, :imports nil, :cljs.analyzer/constants {:seen #{:jsload-callback :re-render-flip :websocket-url}, :order [:websocket-url :jsload-callback :re-render-flip]}}
