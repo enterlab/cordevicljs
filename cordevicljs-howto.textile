@@ -133,3 +133,13 @@ If you get an alert in the native app that looks like a native alert showing the
 
 Now is a good time for a walk in the park with a great cup of coffee and perhaps a good friend/colleage etc.
 
+
+h2. Add Angular.js
+
+# Add ng-app="app" attribute to index.html <html/> element
+
+# Add <script src="lib/onsen/js/angular/angular.js"></script> to bottom of index.html <head/> element
+
+# In top of app.cljs main function (before call to prepare-device), add this angular initialization:
+(.module (.-angular js/window) "app" #js [])
+
