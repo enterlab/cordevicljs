@@ -13,3 +13,4 @@ profiles.clj
 figwheel_server.log
 .DS_Store
 /resources/platforms
+/resources/www/js/out
