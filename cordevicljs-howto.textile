@@ -133,13 +133,28 @@ If you get an alert in the native app that looks like a native alert showing the
 
 Now is a good time for a walk in the park with a great cup of coffee and perhaps a good friend/colleage etc.
 
+github tag: cljs-react-socket-device
 
 h2. Add Angular.js
 
-# Add ng-app="app" attribute to index.html <html/> element
+# Add language="en" ng-app="app" attributes to index.html's <html/> element
 
 # Add <script src="lib/onsen/js/angular/angular.js"></script> to bottom of index.html <head/> element
 
 # In top of app.cljs main function (before call to prepare-device), add this angular initialization:
 (.module (.-angular js/window) "app" #js [])
+
+# test in browser with cordova run browser
+
+If you get the alert as usual, and reagent renders the Rente like content, it works.
+
+# test in device like cordova run ios
+
+If you get the alert there as well, you're good to go on! :)
+
+github tag: cljs-react-socket-device-angular
+
+h2. Add OnsenUI
+
+
 
