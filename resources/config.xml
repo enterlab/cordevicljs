@@ -17,7 +17,15 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" /><!-- Prevent scrolling in app web view -->
+    <preference name="Orientation" value="portrait" />
+
+    <platform name="browser">        
+    </platform>
     <platform name="android">
+        <splash src="www/img/splash/Default-736h.png" density="port-hdpi"/>
+        <splash src="www/img/splash/Default-667h.png" density="port-ldpi"/>
+        <splash src="www/img/splash/Default-667h.png" density="port-mdpi"/>
+        <splash src="www/img/splash/Default-736h.png" density="port-xhdpi"/>
         <icon src="www/img/icons/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
         <icon src="www/img/icons/android/drawable-ldpi/ic_launcher.png" density="ldpi" />
         <icon src="www/img/icons/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
