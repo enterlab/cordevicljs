@@ -6,15 +6,37 @@ Clone, and cd into the `cordevicljs` folder.
 lein figwheel
 ```
 
-Wait for figwheel to finish and notify browser of changed files! Then in another terminal tab:
+Wait for figwheel to finish and notify browser of changed files!
+
+Then in another terminal tab:
 
 ```
 lein run
 ```
 
-cd to resources folder
+Then in a third tab:
 
+```
+cd resources
+cordova platform add browser
+cordova platform add ios|android
+cordova plugin add cordova-plugin-device
+cordova plugin add org.apache.cordova.dialogs
 cordova run browser
+```
+
+This should show a mobile flat UI native like interface with a slider menu and a JavaScript alert telling you that Native Device bridge is working.
+
+Then to test in device emulator:
+
+```
+cordova run ios|android
+```
+
+Refer to XCode/Android SDK manuals if this won't work.
+
+If it works you should see the same app as before, but this time with a real native dialog instead of a JavaScript alert.
+
 
 ## Comments & Suggestions
 
