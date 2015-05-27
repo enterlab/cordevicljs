@@ -32,7 +32,7 @@
 
   :cljsbuild
   {:builds
-   {:client {:source-paths ["src/cordevicljs/client"]
+   {:client {:source-paths ["src/cordevicljs/client" "src/reagent_onsenui"]
              :compiler
              {:output-to "resources/www/js/app.js"
               :output-dir "resources/www/js/out"}}}}
