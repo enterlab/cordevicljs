@@ -5,7 +5,7 @@
         A sample Apache Cordova application that responds to the deviceready event, uses OnsenUI, Facebook React, web socket enabled and has Clojure on both client and server.
     </description>
     <author email="dev@enterlab.com" href="http://enterlab.com">
-        Apache Cordova Team
+        Enterlab Research and Development
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
