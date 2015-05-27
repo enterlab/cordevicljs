@@ -2,9 +2,9 @@
 <widget id="com.enterlab.cordevicljs" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Enterlab CorDeviCLJS</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A sample Apache Cordova application that responds to the deviceready event, uses OnsenUI, Facebook React, web socket enabled and has Clojure on both client and server.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="dev@enterlab.com" href="http://enterlab.com">
         Apache Cordova Team
     </author>
     <content src="index.html" />
@@ -16,6 +16,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="DisallowOverscroll" value="true" /><!-- Prevent scrolling in app web view -->
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
