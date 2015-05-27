@@ -27,6 +27,8 @@
         <allow-intent href="market:*" />
     </platform>
     <platform name="ios">
+        <splash src="www/img/splash/Default-667h.png" width="750" height="1334"/>
+        <splash src="www/img/splash/Default-736h.png" width="1242" height="2208"/>
         <icon src="www/img/icons/ios/Icon-40.png" width="40" height="40" />
         <icon src="www/img/icons/ios/Icon-40@2X.png" width="80" height="80" />
         <icon src="www/img/icons/ios/Icon-40@3X.png" width="120" height="120" />

@@ -26,7 +26,8 @@
                             "xml": true,
                             "count": 1
                         }
-                    ]
+                    ],
+                    "CoreGraphics.framework": []
                 }
             }
         }
