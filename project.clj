@@ -1,9 +1,9 @@
 (defproject cordevicljs "1.0.0"
-  :description ""
+  :description "CorDeviCLJS - Cordova, Device and CLJS. Hybrid mobile app using Cordova with native device bridge, UI based on OnsenUI and Facebook React, based on Enterlab Rente"
   :url "http://enterlab.com"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.7.0-RC1"]
-                 [org.clojure/clojurescript "0.0-3291"]
+                 [org.clojure/clojurescript "0.0-3297"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.3"]
                  [environ "1.0.0"]
