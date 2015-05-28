@@ -17,6 +17,15 @@
   [data [_ msg]]
   (swap! data update-in [:messages] #(conj % msg)))
 
+;; JS -> CLJS interop
+
+(defn splashscreen []
+  (.-splashscreen js/navigator))
+
+(defn hide-splashscreen []
+  (when-let [splash (splashscreen)]
+    (.hide splash)))
+
 ;; Main Reagent Component
 (defn app [data]
   (:re-render-flip @data)
@@ -24,6 +33,7 @@
 
 ;; To be called when Cordova Device is ready
 (defn ^:export onDeviceReady []  
+  (hide-splashscreen)  
   (-> (js* "navigator")
     (.-notification)
       (.alert "Device Native Bridge works!"
