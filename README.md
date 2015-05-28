@@ -45,7 +45,7 @@ cordova run browser
 
 This should show a mobile flat UI native like interface with a slider menu and a JavaScript alert telling you that Native Device bridge is working.
 
-## Test on devices
+## Test on device emulators
 
 Then to test in device emulator:
 
@@ -57,6 +57,13 @@ Refer to XCode/Android SDK manuals if this won't work.
 
 If it works you should see the same app as before, but this time with a real native dialog instead of a JavaScript alert.
 
+## Test on real device
+
+```
+cordova run ios|android --device
+```
+
+It's that simple! :)
 
 ## Comments & Suggestions
 
