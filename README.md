@@ -29,13 +29,13 @@ If you want to test in the browser, you need to remove the splashscreen plugin f
 
 ## Test in browser
 
-# Inside the resources/platforms/browser/www folder, open the cordova_plugins.js file and remove the two references to splashscreen plugin under module.exports.
+1. Inside the resources/platforms/browser/www folder, open the cordova_plugins.js file and remove the two references to splashscreen plugin under module.exports.
 
-# Remove the folder resources/platforms/browser/www/plugins/cordova-plugin-splashscreen
+2. Remove the folder resources/platforms/browser/www/plugins/cordova-plugin-splashscreen
 
-# Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
+3. Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
 
-# Remove the folder resources/plugins/
+4. Remove the folder resources/plugins/
 
 Then you can test in browser:
 
