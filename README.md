@@ -22,10 +22,30 @@ cordova platform add browser
 cordova platform add ios|android
 cordova plugin add cordova-plugin-device
 cordova plugin add org.apache.cordova.dialogs
+cordova plugin add ordova-plugin-splashscreen
+```
+
+If you want to test in the browser, you need to remove the splashscreen plugin from the browser platform. To do this, perform the steps below. If you don't care, you can skip directly to testing on devices!
+
+## Test in browser
+
+# Inside the resources/platforms/browser/www folder, open the cordova_plugins.js file and remove the two references to splashscreen plugin under module.exports.
+
+# Remove the folder resources/platforms/browser/www/plugins/cordova-plugin-splashscreen
+
+# Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
+
+# Remove the folder resources/plugins/
+
+Then you can test in browser:
+
+```
 cordova run browser
 ```
 
 This should show a mobile flat UI native like interface with a slider menu and a JavaScript alert telling you that Native Device bridge is working.
+
+## Test on devices
 
 Then to test in device emulator:
 
