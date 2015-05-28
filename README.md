@@ -22,7 +22,7 @@ cordova platform add browser
 cordova platform add ios|android
 cordova plugin add cordova-plugin-device
 cordova plugin add org.apache.cordova.dialogs
-cordova plugin add ordova-plugin-splashscreen
+cordova plugin add cordova-plugin-splashscreen
 ```
 
 If you want to test in the browser, you need to remove the splashscreen plugin from the browser platform. To do this, perform the steps below. If you don't care, you can skip directly to testing on devices!
