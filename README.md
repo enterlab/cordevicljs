@@ -21,7 +21,7 @@ cd resources
 cordova platform add browser
 cordova platform add ios|android
 cordova plugin add cordova-plugin-device
-cordova plugin add org.apache.cordova.dialogs
+cordova plugin add cordova-plugin-dialogs
 cordova plugin add cordova-plugin-splashscreen
 ```
 
