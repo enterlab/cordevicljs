@@ -35,9 +35,7 @@ If you want to test in the browser, you need to remove the splashscreen plugin f
 
 3. Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
 
-4. Remove the folder resources/plugins/
-
-Then you can test in browser:
+Now you can test in browser:
 
 ```
 cordova run browser
