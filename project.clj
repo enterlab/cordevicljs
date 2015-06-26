@@ -19,8 +19,7 @@
                  [com.cognitect/transit-clj "0.8.275" :exclusions [commons-codec]]
                  [com.cognitect/transit-cljs "0.8.220"]
 
-                 [reagent "0.5.0"]
-                 [org.webjars/bootstrap "3.3.4"]]
+                 [reagent "0.5.0"]]
 
   :plugins [[lein-cljsbuild "1.0.5"]]
 
