@@ -25,6 +25,14 @@ cordova plugin add cordova-plugin-dialogs
 cordova plugin add cordova-plugin-splashscreen
 ```
 
+If the plugins return 404s, you can try installing directly from git
+
+```
+cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git
+cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-dialogs.git
+cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git
+```
+
 If you want to test in the browser, you need to remove the splashscreen plugin from the browser platform. To do this, perform the steps below. If you don't care, you can skip directly to testing on devices!
 
 ## Test in browser
@@ -35,13 +43,15 @@ If you want to test in the browser, you need to remove the splashscreen plugin f
 
 3. Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
 
-Now you can test in browser:
+Now you can test in browser. Still in `resources`, where `config.xml` resides, run
 
 ```
 cordova run browser
 ```
 
 This should show a mobile flat UI native like interface with a slider menu and a JavaScript alert telling you that Native Device bridge is working.
+
+(If you are running linux you have to patch `platforms/browser/cordova/run` as documented here http://stackoverflow.com/questions/29730482)
 
 ## Test on device emulators
 
