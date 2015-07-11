@@ -2,7 +2,7 @@
   :description "CorDeviCLJS - Cordova, Device and CLJS. Hybrid mobile app using Cordova with native device bridge, UI based on OnsenUI and Facebook React, based on Enterlab Rente"
   :url "http://enterlab.com"
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.7.0-RC1"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "0.0-3308"]
                  [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [com.stuartsierra/component "0.2.3"]
