@@ -14,7 +14,7 @@ Then in another terminal tab:
 lein run
 ```
 
-Then in a third tab:
+Be sure to have the [Apache Cordova CLI](http://cordova.apache.org/docs/en/5.0.0/guide_cli_index.md.html) installed and then in a third tab:
 
 ```
 cd resources
