@@ -21,7 +21,7 @@
 
                  [reagent "0.5.1"]]
 
-  :plugins [[lein-cljsbuild "1.0.5"]]
+  :plugins [[lein-cljsbuild "1.1.0"]]
 
   :source-paths ["src"]
   :resource-paths ["resources" "resources-index/prod"]
@@ -40,10 +40,10 @@
 
              :dev [:dev-config
                    {:dependencies [[org.clojure/tools.namespace "0.2.7"]
-                                   [figwheel "0.2.5"]]
+                                   [figwheel "0.3.9"]]
 
-                    :plugins [[lein-figwheel "0.2.5" :exclusions [org.clojure/tools.reader org.clojure/clojurescript clj-stacktrace]]
-                              [lein-environ "1.0.0"]]
+                    :plugins [[lein-figwheel "0.3.9" :exclusions [org.clojure/clojure org.clojure/clojurescript org.codehaus.plexus/plexus-utils]]
+                              [lein-environ "1.0.1"]]
 
                     :source-paths ["dev"]
                     :resource-paths ^:replace
