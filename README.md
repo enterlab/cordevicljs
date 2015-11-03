@@ -73,6 +73,9 @@ cordova run ios|android --device
 
 It's that simple! :)
 
+PS: If you get a warning when installing on iOS device about backup to iCloud, you can disable this by following the steps in the second reply here:
+http://stackoverflow.com/questions/18717339/where-can-i-change-the-backupwebstorage-property-in-my-phonegap-app
+
 ## Comments & Suggestions
 
 Please don't hesitate to contact us if you have any questions/suggestions etc.!
