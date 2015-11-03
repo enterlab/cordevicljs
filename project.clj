@@ -3,8 +3,8 @@
   :url "http://enterlab.com"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.122"]
-                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [org.clojure/clojurescript "1.7.145"]
+                 [org.clojure/core.async "0.2.371"]
                  [com.stuartsierra/component "0.3.0"]
                  [environ "1.0.1"]
                  [ch.qos.logback/logback-classic "1.1.3"]
@@ -16,7 +16,7 @@
                  [http-kit "2.1.19"]
 
                  [com.taoensso/sente "1.6.0" :exclusions [org.clojure/tools.reader]]
-                 [com.cognitect/transit-clj "0.8.281" :exclusions [commons-codec]]
+                 [com.cognitect/transit-clj "0.8.285" :exclusions [commons-codec]]
                  [com.cognitect/transit-cljs "0.8.225"]
 
                  [reagent "0.5.1"]]
