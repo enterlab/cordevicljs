@@ -3,9 +3,9 @@
   :url "http://enterlab.com"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/clojurescript "1.7.145"]
-                 [org.clojure/core.async "0.2.371"]
-                 [com.stuartsierra/component "0.3.0"]
+                 [org.clojure/clojurescript "1.7.189"]
+                 [org.clojure/core.async "0.2.374"]
+                 [com.stuartsierra/component "0.3.1"]
                  [environ "1.0.1"]
                  [ch.qos.logback/logback-classic "1.1.3"]
                  [org.clojure/tools.logging "0.3.1"]
@@ -15,9 +15,9 @@
                  [compojure "1.4.0"]
                  [http-kit "2.1.19"]
 
-                 [com.taoensso/sente "1.6.0" :exclusions [org.clojure/tools.reader]]
-                 [com.cognitect/transit-clj "0.8.285" :exclusions [commons-codec]]
-                 [com.cognitect/transit-cljs "0.8.225"]
+                 [com.taoensso/sente "1.6.0"]
+                 [com.cognitect/transit-clj "0.8.285"]
+                 [com.cognitect/transit-cljs "0.8.232"]
 
                  [reagent "0.5.1"]]
 
@@ -39,10 +39,10 @@
   :profiles {:dev-config {}
 
              :dev [:dev-config
-                   {:dependencies [[org.clojure/tools.namespace "0.2.7"]
-                                   [figwheel "0.3.9"]]
+                   {:dependencies [[org.clojure/tools.namespace "0.2.10"]
+                                   [figwheel "0.5.0-2"]]
 
-                    :plugins [[lein-figwheel "0.3.9" :exclusions [org.clojure/clojure org.clojure/clojurescript org.codehaus.plexus/plexus-utils]]
+                    :plugins [[lein-figwheel "0.5.0-2"]
                               [lein-environ "1.0.1"]]
 
                     :source-paths ["dev"]
