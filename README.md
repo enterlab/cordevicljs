@@ -95,7 +95,7 @@ And the people enabling the tech that Rente is based upon (see Special Thanks in
 
 ## License
 
-Copyright © Enterlab 2015
+Copyright © Enterlab 2015-2016
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
