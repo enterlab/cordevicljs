@@ -28,8 +28,7 @@
 (defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))
 
-(let [packer (sente-transit/get-flexi-packer :edn)
-
+(let [packer :edn
       {:keys [chsk ch-recv send-fn state]}
       (sente/make-channel-socket! "/chsk" {:type :auto :packer packer
                                            :chsk-url-fn (constantly "ws://localhost:8080/chsk")
