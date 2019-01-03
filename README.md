@@ -14,7 +14,7 @@ Then in another terminal tab:
 lein run
 ```
 
-Be sure to have the [Apache Cordova CLI](http://cordova.apache.org/docs/en/5.0.0/guide_cli_index.md.html) installed and then in a third tab:
+Be sure to have the [Apache Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/index.html) installed and then in a third tab:
 
 ```
 cd resources
@@ -33,17 +33,11 @@ cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-dialog
 cordova plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-splashscreen.git
 ```
 
-If you want to test in the browser, you need to remove the splashscreen plugin from the browser platform. To do this, perform the steps below. If you don't care, you can skip directly to testing on devices!
+For older versions of Cordova and the Splashscreen plugin, you sometimes had to remove the splashscreen plugin to test in the browser. This doesn't seem to be the case anymore, although your browser will try to get the splash screen, which it can't. If you don't want to look at it, and only develop in the browser, simply remove it again:
 
-## Test in browser
-
-_[With older versions of cordova browser platform, you needed to remove the splash plugin as described below, this is **not needed for newer versions!**]_
-
-1. Inside the resources/platforms/browser/www folder, open the cordova_plugins.js file and remove the two references to splashscreen plugin under module.exports.
-
-2. Remove the folder resources/platforms/browser/www/plugins/cordova-plugin-splashscreen
-
-3. Inside the resources/plugins folder, edit the browser.json file and remove the reference to the splashscreen plugin under installed_plugins.
+```
+cordova plugin rm cordova-plugin-splashscreen
+```
 
 Now you can test in browser. Still in `resources`, where `config.xml` resides, run
 
@@ -53,7 +47,7 @@ cordova run browser
 
 This should show a mobile flat UI native like interface with a slider menu and a JavaScript alert telling you that Native Device bridge is working.
 
-(If you are running linux you have to patch `platforms/browser/cordova/run` as documented here http://stackoverflow.com/questions/29730482)
+(For some older versions of Cordova on Linux, you had to patch `platforms/browser/cordova/run` as documented here http://stackoverflow.com/questions/29730482)
 
 ## Test on device emulators
 
@@ -95,7 +89,8 @@ And the people enabling the tech that Rente is based upon (see Special Thanks in
 
 ## License
 
-Copyright © Enterlab 2015-2016
+Copyright © Enterlab 2015-2019
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+
+Logos/images are strictly Copyright © Enterlab 2015, and can only be used for personal purposes. In other words - replace with your own logos/icons/images for real purpose apps/usages.

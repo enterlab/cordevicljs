@@ -8,28 +8,33 @@
 
 (def ping-counts (atom 0))
 
-(defmulti event-msg-handler :id) ; Dispatch on event-id
+(defmulti event-msg-handler :id) ;; Dispatch on event-id
+
 ;; Wrap for logging, catching, etc.:
-(defn     event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
+(defn event-msg-handler* [{:as ev-msg :keys [id ?data event]}]
   (event-msg-handler ev-msg))
 
+(defmethod event-msg-handler :chsk/uidport-open
+  [_] 
+  (println "Web socket open"))
+
 (defmethod event-msg-handler :chsk/ws-ping
-  [_]
-    (swap! ping-counts inc)
-    (when (= 0 (mod @ping-counts 10))
-      (println "ping counts: " @ping-counts)))
+  [_] 
+  (swap! ping-counts inc)
+  (when (= 0 (mod @ping-counts 10))
+    (println "ping counts: " @ping-counts)))
 
 (defmethod event-msg-handler :cordevicljs/testevent
   [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
-  (if ?reply-fn
+  (if ?reply-fn 
     (?reply-fn [:cordevicljs/testevent {:message (str "Hello socket from server Callback, received: " ?data)}])
     (send-fn :sente/all-users-without-uid [:cordevicljs/testevent {:message (str "Hello socket from server Event (no callback), received: " ?data)}])))
 
-(defmethod event-msg-handler :default ; Fallback
-  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}]
+(defmethod event-msg-handler :default ;; Fallback
+  [{:as ev-msg :keys [event id ?data ring-req ?reply-fn send-fn]}] 
   (let [session (:session ring-req)
         uid     (:uid     session)]
-    (println "Unhandled event: %s" event)
+    (println "Unhandled event: " event)
     (when ?reply-fn
       (?reply-fn {:umatched-event-as-echoed-from-from-server event}))))
 
